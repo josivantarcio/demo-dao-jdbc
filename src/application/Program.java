@@ -1,5 +1,6 @@
 package application;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
@@ -17,20 +18,23 @@ public class Program {
 		System.out.println("==== Test1 : seller findById =====");
 		Seller vendedor = sellerDao.findById(4);
 		System.out.println(vendedor);
-		
+
 		System.out.println("\n==== Test2 : seller findByDepartment =====");
 		Department department = new Department(1, null);
 		List<Seller> lista = sellerDao.findByDepartment(department);
 		for (Seller seller : lista) {
 			System.out.println(seller);
 		}
-		
+
 		System.out.println("\n==== Test3 : seller findAll =====");
 		lista = sellerDao.findAll();
 		for (Seller seller : lista) {
 			System.out.println(seller);
 		}
-		
-	}
 
+		System.out.println("\n==== Test4 : seller Insert =====");
+		Seller seller = new Seller(null, "Joaquim", "joaquim@email.com", new Date(), 6500.00, department);
+		sellerDao.insert(seller);
+		System.out.println(seller);
+	}
 }
