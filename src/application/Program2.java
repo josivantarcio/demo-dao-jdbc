@@ -32,8 +32,20 @@ public class Program2 {
 		departmentDao.insert(department);
 		System.out.println(department);
 
+		System.out.println("\n==== Test4 : department Update =====");
+		department = departmentDao.findById(12);
+		department.setName("Perfumaria");
+		departmentDao.update(department);
+		System.out.println(department);
+		
+		System.out.println("\n==== Test5 : department Delete =====");
+		System.out.print("Digite o ID para excluir: ");
+		int id = sc.nextInt();
+		departmentDao.deleteById(id);
+		System.out.println("Delete completed");
+
 		sc.close();
-		DB.getConnection();
+		DB.closeConnection();
 	}
 
 }
